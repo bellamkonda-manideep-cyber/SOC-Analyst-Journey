@@ -1,47 +1,46 @@
 ## Unauthorized Login Alert Analysis (Junior Security Analyst Intro - TryHackMe).
 
-<br>
+
 
 ### Overview
 
-<br>
 
 This repository documents my learning from the [Junior Security Analyst Intro room on TryHackMe](https://tryhackme.com/room/jrsecanalystintrouxo?utm_campaign=social_share&utm_medium=social&utm_content=room&utm_source=copy&sharerId=66ae5e8b243b63afc413148f). 
 The room introduces the core concepts of a Security Operations Center (SOC), focusing on Junior Security Analyst Journey, Security Operations Center (SOC), and A Day in the Life of a Security Analyst.
 
-<br>
+---
 
 ### Alert Details
-* Alert Name:- Unauthorized login attempts and one Successful SSH login from the suspicious IP
-* Severity:- Critical
-* From:- External IP
-* Frequency:- Malicious - Involved in 4 Cyber Attacks
+* Alert Name:- Unauthorized login attempts with Successful SSH login 
+* Severity:- Critical (as reported by the detection rule)
+* Source:- External IP address
+* Frequency:- Multiple repeated login attempts within a short time window
 
-<br>
+---
 
 ### Logs Reviewed (EVIDENCE)
-* Authentication logs:- Malicious - Involved in 4 Cyber Attacks
+* Authentication logs related to SSH access
 * Time window:- Jan 6th 2026 at 14:13
-* Pattern:- Repeated
+* Pattern observed: Repeated unauthorized login attempts from the same external IP
 
-<br>
+---
 
 ### Analysis
 
-1. Why is this abnormal?
-A. Observed the authentication logs Successful SSH login from the suspicious IP followed by Unauthorized login attempts from same IP address.
+1. Why is this abnormal? <br>
+A. Authentication logs showed a successful SSH login followed by multiple unauthorized login attempts from the same external IP address. This pattern does not match normal user behavior.
 
-2. What makes it risky?
-A. Successful SSH login from suspicious IP.
+2. What makes it risky? <br>
+A. The activity involved remote SSH access from an external IP. A successful login combined with repeated unauthorized attempts increases the risk of account compromise and potential impact on systems.
 
-<br>
+---
 
 ### Decision
-* Escalated to L2:- Observed the authentication logs and found Successful SSH login which impacts on business.
+* Action Taken: Escalated to SOC L2
+* Reason: Evidence of abnormal authentication behavior involving external SSH access and repeated unauthorized attempts, indicating potential security risk.
 
-<br>
+---
 
 ### Learning Outcome
-* After completing this lab from TryHackMe, I gained hands-on experince on A Day in the Life of a Security Analyst.
-
+This case reinforced the importance of analyzing authentication logs with context and patterns. It highlighted how SOC L1 analysts rely on evidence and behavior analysis to make escalation decisions, while tools primarily assist in log visibility.
 
